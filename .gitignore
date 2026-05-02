@@ -1,4 +1,4 @@
-/noble-server-cloudimg-amd64.img
-/seed.iso
-/k8s-node-1.qcow2
+*.img
+*.iso
+*.qcow2
 
