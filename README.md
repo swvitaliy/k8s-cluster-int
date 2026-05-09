@@ -146,7 +146,7 @@ sudo kubeadm join <master-ip>:6443 ...
 
 ## Troubleshooting
 
-1. reset and reboot a node:
+### Reset and reboot a node
 
 ```bash
 sudo systemctl stop kubelet
@@ -155,7 +155,7 @@ sudo rm -rf /etc/kubernetes /var/lib/kubelet /etc/cni/net.d
 sudo reboot
 ```
 
-2. setup hostname:
+### Setup hostname
 
 ```bash
 hostname
@@ -165,6 +165,16 @@ hostname
 sudo hostnamectl set-hostname k8s-worker-1
 echo "192.168.122.240 k8s-worker-1" | sudo tee -a /etc/hosts
 ```
+
+### Increase memory of worker nodes
+
+Stop the node and run:
+
+```bash
+virsh setmaxmem k8s-worker-1 16G --config
+virsh setmem k8s-worker-1 16G --config
+```
+
 
 ## Uninstall
 
